@@ -12,14 +12,30 @@
   <body>
     <script>
       (function () {
+        function createFavicon(color) {
+          const canvas = document.createElement('canvas');
+          canvas.width = 16;
+          canvas.height = 16;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = color;
+          ctx.fillRect(0, 0, 16, 16);
+          
+          const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
+          link.rel = 'icon';
+          link.href = canvas.toDataURL();
+          document.head.appendChild(link);
+        }
+        
         function on() {
           console.log('on');
           document.body.style.backgroundColor = '#FFF';
+          createFavicon('#FFF');
           setTimeout(off, 7 * 1000);
         }
         function off() {
           console.log('off');
           document.body.style.backgroundColor = '#000';
+          createFavicon('#000');
           setTimeout(on, 10 * 1000);
         }
         on();
