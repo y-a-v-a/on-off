@@ -1,0 +1,29 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      The webpage going on and off – 2023 – ax710.org – y-a-v-a.org –
+      on-off.infrath.in
+    </title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        function on() {
+          console.log('on');
+          document.body.style.backgroundColor = '#FFF';
+          setTimeout(off, 7 * 1000);
+        }
+        function off() {
+          console.log('off');
+          document.body.style.backgroundColor = '#000';
+          setTimeout(on, 10 * 1000);
+        }
+        on();
+      })();
+    </script>
+  </body>
+</html>
